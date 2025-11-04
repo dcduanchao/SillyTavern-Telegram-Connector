@@ -1,4 +1,5 @@
 ## 插件indes.js
+```
 let myProcessedChatId = null; //全局
 
 eventSource.on('SD_IMAGE_GENERATED', (data) => {
@@ -13,10 +14,10 @@ eventSource.on('SD_IMAGE_GENERATED', (data) => {
         }));
     }
 });
-
+```
 
 #3 server.js
-
+```
 else if (data.type === 'ai_reply' && data.chatId) {
                 logWithTimestamp('log', `收到非流式AI回复，发送至Telegram用户 ${data.chatId}`);
                 // 确保在发送消息前清理可能存在的流式会话
@@ -38,9 +39,10 @@ else if (data.type === 'ai_reply' && data.chatId) {
                   });
                 }
             }
-
+```
 ## sd 插件/root/SillyTavern/public/scripts/extensions/stable-diffusion
  index.js
+ ```
    const filename = `${characterName}_${humanizedDateTime()}`;
     const base64Image = await saveBase64AsFile(result.data, characterName, filename, result.format);
         const imageUrl = `http://155.94.170.142:8000${base64Image}`;
@@ -60,6 +62,7 @@ else if (data.type === 'ai_reply' && data.chatId) {
         ? await callback(prompt, base64Image, generationType, additionalNegativePrefix, initiator, prefixedPrompt, result.format)
         : await sendMessage(prompt, base64Image, generationType, additionalNegativePrefix, initiator, prefixedPrompt, result.format);
     return base64Image;
+```
  
 
 
